@@ -1,24 +1,23 @@
-<?php
-    //Criando array:
-    $categorias = [];
-    $categorias[] = 'infantil';
-    $categorias[] = 'adolescente';
-    $categorias[] = 'adulto';
-    //Imprime objetos:
-    print_r($categorias);
+<!DOCTYPE html>
+<!--//Criar um formulário para que o usuário possa preencher nome e idade dos competidores.
+//Exibirá então a categoria da pessoa-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Formulário de inscrição</title>
+        <meta name="author" content="">
+        <meta name="description" content"">
+        <meta name="viewport" content="width-device-width, initial scale=1">
+    </head>
 
-    $nome = 'Alex';
-    $idade = 20;
-    //Obtém informações da variável:
-    var_dump($nome);
-    var_dump($idade);
-    echo '<br />';
-    if($idade>= 6 && $idade <= 12){
-        //Concatenação:
-        echo"Atleta ".$nome." compete na categoria ".$categorias[0];
-    } else if($idade>= 13 && $idade <= 18){
-        echo"Atleta ".$nome." compete na categoria ".$categorias[1];
-    } else {
-        echo"Atleta ".$nome." compete na categoria ".$categorias[2];
-    }
-?>
+    <body>
+        <p>FORMULÁRIO PARA INSCRIÇÃO DE COMPETIDORES</p>
+
+        <form action="verifica_idade.php" method="post">
+            <p>Nome: <input type="text" name="nome" /> </p>
+            <p>Idade: <input type="text" name="idade" /> </p>
+            <p><input type="submit" /></p>
+        </form>
+
+    </body>
+</html>
