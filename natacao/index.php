@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <!--//Criar um formulário para que o usuário possa preencher nome e idade dos competidores.
 //Exibirá então a categoria da pessoa-->
@@ -14,6 +18,12 @@
         <p>FORMULÁRIO PARA INSCRIÇÃO DE COMPETIDORES</p>
 
         <form action="verifica_idade.php" method="post">
+            <?php
+                $mensagemDeErro = isset($_SESSION['mensagem-de-erro']) ? $_SESSION['mensagem-de-erro'] : '';
+                if(!empty($mensagemDeErro)){
+                    echo $mensagemDeErro;
+                }
+            ?>
             <p>Nome: <input type="text" name="nome" /> </p>
             <p>Idade: <input type="text" name="idade" /> </p>
             <p><input type="submit" /></p>

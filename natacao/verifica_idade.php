@@ -1,5 +1,7 @@
 <?php
 
+    session_start();
+
     //Criando array:
     $categorias = [];
     $categorias[] = 'infantil';
@@ -16,24 +18,23 @@
     print_r($categorias);
     var_dump($nome);
     var_dump($idade);
-    echo '<br /><br />Resultado:<br/>';
 
     //Validação das informações:
     if(empty($nome)){
-        echo 'O nome não pode ser vazio';
-        return;
+        $_SESSION['mensagem-de-erro']='O nome não pode ser vazio';
+        header('location:index.php');
     }
     if(strlen($nome)<3){
-        echo 'Nome deve ter mais de 3 caracteres';
-        return;
+        $_SESSION['mensagem-de-erro']='Nome deve ter mais de 3 caracteres';
+        header('location:index.php');
     }
     if(strlen($nome)>40){
-        echo 'Nome muito extenso';
-        return;
+        $_SESSION['mensagem-de-erro']='Nome muito extenso';
+        header('location:index.php');
     }
     if(!is_numeric($idade)){
-        echo 'A idade precisa ser um número';
-        return;
+        $_SESSION['mensagem-de-erro']='A idade precisa ser um número';
+        header('location:index.php');
     }
 
 
