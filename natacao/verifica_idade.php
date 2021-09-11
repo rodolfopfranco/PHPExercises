@@ -22,29 +22,32 @@
     //Validação das informações:
     if(empty($nome)){
         $_SESSION['mensagem-de-erro']='O nome não pode ser vazio';
-        header('location:index.php');
-    }
+    } else
     if(strlen($nome)<3){
         $_SESSION['mensagem-de-erro']='Nome deve ter mais de 3 caracteres';
-        header('location:index.php');
-    }
+    } else
     if(strlen($nome)>40){
         $_SESSION['mensagem-de-erro']='Nome muito extenso';
-        header('location:index.php');
-    }
+    } else
     if(!is_numeric($idade)){
         $_SESSION['mensagem-de-erro']='A idade precisa ser um número';
+    } else {
+        $_SESSION['mensagem-de-erro']=NULL;
+    }
+    if(isset($_SESSION['mensagem-de-erro'])){
+        $_SESSION['mensagem-de-sucesso'] = NULL;
         header('location:index.php');
     }
 
-
-//Prints:
-    if($idade>= 6 && $idade <= 12){
+    if($idade>= 6 && $idade <= 12 && !isset($_SESSION['mensagem-de-erro'])){
         //Concatenação:
-        echo"Atleta ".$nome." compete na categoria ".$categorias[0];
+        $_SESSION['mensagem-de-sucesso'] = "Atleta ".$nome." compete na categoria ".$categorias[0];
+        header('location:index.php');
     } else if($idade>= 13 && $idade <= 18){
-        echo"Atleta ".$nome." compete na categoria ".$categorias[1];
-    } else {
-        echo"Atleta ".$nome." compete na categoria ".$categorias[2];
+        $_SESSION['mensagem-de-sucesso'] = "Atleta ".$nome." compete na categoria ".$categorias[1];
+        header('location:index.php');
+    } else if($idade>= 19 && $idade <= 130){
+        $_SESSION['mensagem-de-sucesso'] = "Atleta ".$nome." compete na categoria ".$categorias[2];
+        header('location:index.php');
     }
 ?>

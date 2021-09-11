@@ -27,6 +27,12 @@
             <p>Nome: <input type="text" name="nome" /> </p>
             <p>Idade: <input type="text" name="idade" /> </p>
             <p><input type="submit" /></p>
+            <?php
+                $mensagemDeSucesso = isset($_SESSION['mensagem-de-sucesso']) ? $_SESSION['mensagem-de-sucesso'] : '';
+                if(!empty($mensagemDeSucesso)){
+                    echo $mensagemDeSucesso;
+                }
+            ?>
         </form>
 
     </body>
