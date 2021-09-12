@@ -15,7 +15,7 @@
             setarMensagemErro('Nome muito extenso');
             return false;
         } else {
-            setarMensagemErro(NULL);
+            setarMensagemErro('');
             return true;
         }
     }
@@ -25,7 +25,7 @@
             setarMensagemErro('A idade precisa ser um número');
             return false;
         } else {
-            setarMensagemErro(NULL);
+            setarMensagemErro('');
             return true;
         }
     }

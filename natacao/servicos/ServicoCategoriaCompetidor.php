@@ -6,8 +6,9 @@
         $categorias[] = 'infantil';
         $categorias[] = 'adolescente';
         $categorias[] = 'adulto';
+        removerMensagemErro();
         if(validaNome($nome) && validaIdade($idade)){
-            if($idade>= 6 && $idade <= 12 && !isset($_SESSION['mensagem-de-erro'])){
+            if($idade>= 6 && $idade <= 12){
                 //Concatenação:
                 setarMensagemSucesso("Atleta ".$nome." compete na categoria ".$categorias[0]);
                 return null;
@@ -19,6 +20,7 @@
                 return null;
             }
         } else {
+            removerMensagemSucesso();
             return obterMensagemErro();
         }
     }
