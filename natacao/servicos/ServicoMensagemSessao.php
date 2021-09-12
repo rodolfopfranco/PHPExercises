@@ -7,7 +7,7 @@
     function obterMensagemErro(): string{
         if(isset($_SESSION['mensagem-de-erro']))
             return $_SESSION['mensagem-de-erro'];
-        return null;
+        return '';
     }
 
     function setarMensagemSucesso(string $mensagem):void{
@@ -17,7 +17,7 @@
     function obterMensagemSucesso(): string{
         if(isset($_SESSION['mensagem-de-sucesso']))
             return $_SESSION['mensagem-de-sucesso'];
-        return null;
+        return '';
     }
 
     function removerMensagemErro(){
