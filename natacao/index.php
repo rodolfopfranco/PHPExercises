@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    include "servicos/ServicoMensagemSessao.php";
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +19,7 @@
 
         <form action="verifica_idade.php" method="post">
             <?php
-                $mensagemDeErro = isset($_SESSION['mensagem-de-erro']) ? $_SESSION['mensagem-de-erro'] : '';
+                $mensagemDeErro = obterMensagemErro();
                 if(!empty($mensagemDeErro)){
                     echo $mensagemDeErro;
                 }
@@ -28,7 +28,7 @@
             <p>Idade: <input type="text" name="idade" /> </p>
             <p><input type="submit" /></p>
             <?php
-                $mensagemDeSucesso = isset($_SESSION['mensagem-de-sucesso']) ? $_SESSION['mensagem-de-sucesso'] : '';
+                $mensagemDeSucesso = obterMensagemSucesso();
                 if(!empty($mensagemDeSucesso)){
                     echo $mensagemDeSucesso;
                 }

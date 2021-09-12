@@ -1,5 +1,8 @@
 <?php
 
+    include "servicos/ServicoMensagemSessao.php";
+    include "servicos/ServicoCategoriaCompetidor.php";
+    include "servicos/ServicoValidacao.php";
     session_start();
 
     //Obtendo informações do post:
@@ -13,5 +16,6 @@
     var_dump($idade);
 
     defineCategoriaAtleta($nome,$idade);
+    header('location: index.php');
 
 ?>
