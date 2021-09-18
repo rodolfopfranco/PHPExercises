@@ -3,14 +3,35 @@
 class ContaBancaria{
     //modificadores de acesso:
     //public - private - protected
+    //Pode se declarar o tipo do atributo assim:
+    /**
+     * @var string
+     */
     private $nomeTitular;
-    private $numeroAgencia;
+    //ou assim:
+    private string $numeroAgencia;
+    /**
+     * @var string
+     */
     private $numeroConta;
+    /**
+     * @var float
+     */
     private $saldo;
+    /**
+     * @var string
+     */
     private $banco;
 
     //Construtor:
-    public function __construct($banco, $nomeTitular, $numeroAgencia, $numeroConta, $saldo){
+    //Recomendado definir os tipos das variáveis:
+    public function __construct(
+        string $banco,
+        string $nomeTitular,
+        string $numeroAgencia,
+        string $numeroConta,
+        float $saldo){
+            
         $this->banco = $banco;
         $this->nomeTitular = $nomeTitular;
         $this->numeroAgencia = $numeroAgencia;
