@@ -15,9 +15,11 @@ $usuario = [
 
 //Bloco trycatch:
 try{
-    $usuarioValido = validarUsuario($usuario);
+    $status = validarUsuario($usuario);
 } catch (Exception $e){
     echo $e->getMessage();
+} finally {
+    echo "Status da operação: ".(int)$status;
 }
 
 echo "\n... executando ...\n";
