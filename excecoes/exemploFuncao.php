@@ -13,6 +13,11 @@ $usuario = [
     'idade' => 57,
 ];
 
-$usuarioValido = validarUsuario($usuario);
+//Bloco trycatch:
+try{
+    $usuarioValido = validarUsuario($usuario);
+} catch (Exception $e){
+    echo $e->getMessage();
+}
 
 echo "\n... executando ...\n";
